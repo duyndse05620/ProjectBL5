@@ -14,10 +14,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.CateField;
+import model.Booking;
 
-
-public class ListFieldController extends HttpServlet {
+/**
+ *
+ * @author Windows 10-DPC
+ */
+public class ListDetailFieldController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +39,10 @@ public class ListFieldController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ListFieldController</title>");            
+            out.println("<title>Servlet ListDetailFieldController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ListFieldController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ListDetailFieldController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,11 +62,10 @@ public class ListFieldController extends HttpServlet {
             throws ServletException, IOException {
         try {
             FieldDAO fieldDAO = new FieldDAOImpl();
-            List<CateField> cateFields = fieldDAO.getAllCateFields();
+            List<Booking> bookings = fieldDAO.getAllDetailsBooking();
             
-            request.setAttribute("cateFields", cateFields);
-            request.getRequestDispatcher("view/home.jsp").forward(request, response);
-            
+            request.setAttribute("bookings", bookings);
+            request.getRequestDispatcher("view/detail.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }

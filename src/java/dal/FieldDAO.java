@@ -9,13 +9,18 @@ import model.CateField;
 import model.Field;
 import java.sql.SQLException;
 import java.util.List;
+import model.Booking;
+import model.Slot;
 
-/**
- *
- * @author asus
- */
+
 public interface FieldDAO {
     public List<Field> getAllFields() throws SQLException;
     
     public List<CateField> getAllCateFields() throws SQLException;
+    
+    public List<Slot> getAllSlots() throws SQLException;
+    
+    public int insertBookingField(Booking b) throws SQLException;
+    
+    public List<Booking> getAllDetailsBooking() throws SQLException;
 }

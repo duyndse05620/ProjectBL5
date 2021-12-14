@@ -5,10 +5,7 @@
  */
 package model;
 
-/**
- *
- * @author asus
- */
+
 public class Slot {
     private int slotId;
     private String time;

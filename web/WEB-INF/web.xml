@@ -4,9 +4,25 @@
         <servlet-name>ListFieldController</servlet-name>
         <servlet-class>controller.ListFieldController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddBookingFieldController</servlet-name>
+        <servlet-class>controller.AddBookingFieldController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListDetailFieldController</servlet-name>
+        <servlet-class>controller.ListDetailFieldController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListFieldController</servlet-name>
         <url-pattern>/ListField</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddBookingFieldController</servlet-name>
+        <url-pattern>/AddBookingField</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListDetailFieldController</servlet-name>
+        <url-pattern>/ListDetailField</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

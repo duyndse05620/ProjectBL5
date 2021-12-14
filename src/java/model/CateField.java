@@ -5,17 +5,35 @@
  */
 package model;
 
-/**
- *
- * @author asus
- */
+import java.util.List;
+
+
 public class CateField {
     private int cateFieldId;
     private String cateFieldName;
     private String cateFieldAddress;
     private int cateFieldNumberLeft;
     private String cateImage;
+    private String phone;
+    private List<Field> fields;
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public List<Field> getFields() {
+        return fields;
+    }
+
+    public void setFields(List<Field> fields) {
+        this.fields = fields;
+    }
+
+    
     public int getCateFieldId() {
         return cateFieldId;
     }
@@ -55,6 +73,7 @@ public class CateField {
     public void setCateImage(String cateImage) {
         this.cateImage = cateImage;
     }
+    
     
     
 }

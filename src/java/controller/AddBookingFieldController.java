@@ -9,15 +9,18 @@ import dal.FieldDAO;
 import dal.FieldDAOImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.CateField;
+import model.Booking;
 
-
-public class ListFieldController extends HttpServlet {
+/**
+ *
+ * @author Windows 10-DPC
+ */
+public class AddBookingFieldController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +39,10 @@ public class ListFieldController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ListFieldController</title>");            
+            out.println("<title>Servlet AddBookingFieldController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ListFieldController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AddBookingFieldController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,16 +60,7 @@ public class ListFieldController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            FieldDAO fieldDAO = new FieldDAOImpl();
-            List<CateField> cateFields = fieldDAO.getAllCateFields();
-            
-            request.setAttribute("cateFields", cateFields);
-            request.getRequestDispatcher("view/home.jsp").forward(request, response);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -80,7 +74,26 @@ public class ListFieldController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            int fieldId = Integer.parseInt(request.getParameter("fieldName"));
+            int slotId = Integer.parseInt(request.getParameter("slot"));
+            Date date = Date.valueOf(request.getParameter("date"));
+
+            Booking b = new Booking();
+            b.setFieldId(fieldId);
+            b.setSlotId(slotId);
+            b.setBookingDate(date);
+            b.setUserId(1);
+
+            FieldDAO fieldDAO = new FieldDAOImpl();
+            if (fieldDAO.insertBookingField(b) > 0) {
+                response.getWriter().print("sucess");
+            } else {
+                response.getWriter().print("failed");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

@@ -7,10 +7,7 @@ package model;
 
 import java.sql.Date;
 
-/**
- *
- * @author asus
- */
+
 public class User {
     private int id;
     private String name;
