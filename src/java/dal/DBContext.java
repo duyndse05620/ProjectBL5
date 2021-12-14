@@ -8,29 +8,28 @@ package dal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
- * @author fsoft
+ * @author Sap-lap
  */
-public abstract class BaseDAO<T> {
+public class DBContext {
     protected Connection connection;
-    public BaseDAO()
+    public DBContext()
     {
         try {
-            String user = "Duy";
+            String username = "Duy";
             String pass = "duynd";
             String url = "jdbc:sqlserver://localhost:1433;databaseName=Booking";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            connection = DriverManager.getConnection(url, user, pass);
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(BaseDAO.class.getName()).log(Level.SEVERE, null, ex);
+            connection = DriverManager.getConnection(url, username, pass);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
-    
-    public abstract ArrayList<T> getAll();
-    
 }
