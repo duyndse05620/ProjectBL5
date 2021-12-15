@@ -99,6 +99,7 @@ public class FieldDAOImpl extends DBContext implements FieldDAO {
             stm.setInt(2, b.getFieldId());
             stm.setInt(3, b.getSlotId());
             stm.setDate(4, b.getBookingDate());
+            stm.setInt(5, b.getField().getCateFieldId());
             check = stm.executeUpdate();
         } catch (Exception ex) {
             Logger.getLogger(FieldDAOImpl.class.getName()).log(Level.SEVERE, null, ex);

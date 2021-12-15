@@ -85,7 +85,7 @@
             </form>
 
             <div class="div-btn">
-                <input type="submit" class="btn btn-primary" value="Quay Lại Sân" onclick="window.location.href = 'ListField'"/>  
+                <input type="submit" class="btn btn-primary" value="Quay Lại Sân" onclick="window.location.href = 'ListDetailField'"/>  
             </div>
         </section>
         <footer></footer>

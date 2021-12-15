@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Booking;
+import model.Field;
 
 /**
  *
@@ -79,15 +80,22 @@ public class AddBookingFieldController extends HttpServlet {
             int slotId = Integer.parseInt(request.getParameter("slot"));
             Date date = Date.valueOf(request.getParameter("date"));
 
+            int cateid = Integer.parseInt(request.getParameter("Cateid"));
+            Field f = new Field();
+            f.setCateFieldId(cateid);
+            
+            
             Booking b = new Booking();
             b.setFieldId(fieldId);
             b.setSlotId(slotId);
             b.setBookingDate(date);
             b.setUserId(1);
+            
+            b.setField(f);
 
             FieldDAO fieldDAO = new FieldDAOImpl();
             if (fieldDAO.insertBookingField(b) > 0) {
-                response.getWriter().print("sucess");
+                response.getWriter().print("Booking sucess");
             } else {
                 response.getWriter().print("failed");
             }
