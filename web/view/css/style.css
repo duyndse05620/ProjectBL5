@@ -1,61 +1,36 @@
-
-.container-section-body{
-    height: 900px;
-    background-color: azure;
-}
-.title-body{
-    height: 90px;
-    margin: 0 18%;
-    padding-top: 20px;
-    border-bottom-style: solid;
-}
-.title-body p{
-    font-size: 40px;
-}
-.items-body{
-    height: 800px;
-    margin: 0 18%;
-    padding-top: 40px;
-}
-.col-items{
-    height: 400px;
-    margin: 10px 0px;
+.title{
     text-align: center;
 }
-.items-name a{
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
-}
-.items-info{
-    padding: 4px 0;
+
+.div-btn{
+    float: right;
+    margin: 1%;
+    width: 250px;
 }
 
-.items-info-san{
-    padding: 4px 0;
+.table .in{
+    width: 500px;
+    text-align: center;
 }
-.btn-booking{
-    padding-top: 5px;
-}
-.navbar-brand img{
-    width: 100px;
-    height: 100px;
-}
-.close{
-    margin-left: 73%
-}
-.items-image img{
+
+.table .label{
     width: 300px;
-    height: 168px;
 }
 
-h1{
-    margin-top: 0px;
-    padding-top: 10px
+.footer-copyright{
+    text-align: center;
 }
+
+.session{
+    height: 550px;
+}
+
+style { margin: 0 auto; font-family: sans-serif; }
+
+body { margin: 0 auto; }
 
 header {
-	height: 100px;
+	height: 70px;
 	background-color: #3e739d;
 	border-bottom: 1px solid #494949;
 	display: flex;

@@ -78,7 +78,7 @@
                                     <span class="items-diachi-san-normal"><%=cate.getCateFieldAddress()%></span>
                                 </div>
                                 <div class="items-info-san">
-                                    <span class="items-diachi-san-bold">Sân trống:</span>
+                                    <span class="items-diachi-san-bold">Số sân:</span>
                                     <span class="items-diachi-san-normal"><%=cate.getCateFieldNumberLeft()%></span>
                                 </div>
                                 <div class="btn-booking">
@@ -112,7 +112,15 @@
                                                 <option value="<%=s.getSlotId()%>"><%=s.getTime()%> - <%=s.getPrice()%></option>
                                                 <%}%>
                                             </select><br>
-                                            <br>
+                                            <br> <form action="AddBookingField" method="POST" id="booking_form">
+                                            Số sân : <select name="fieldName">
+                                                <%for (Field f : fields) {
+                                                %>
+                                                <%if (f.getCateFieldId() == cate.getCateFieldId()) {%>
+                                                <option value="<%=f.getCateFieldId()%>"><%=f.getFieldName()%></option>
+                                                <%}%>
+                                                <%}%>
+                                            </select><br>
                                             Chọn ngày :<input type="date" name="date"/><br>
                                             <br>
                                         </form>

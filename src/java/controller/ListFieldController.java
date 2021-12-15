@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.CateField;
+import model.Field;
+import model.Slot;
 
 
 public class ListFieldController extends HttpServlet {
@@ -60,8 +62,15 @@ public class ListFieldController extends HttpServlet {
         try {
             FieldDAO fieldDAO = new FieldDAOImpl();
             List<CateField> cateFields = fieldDAO.getAllCateFields();
-            
+            List<Field> fields = fieldDAO.getAllFields();
+            List<Slot> slots = fieldDAO.getAllSlots();
+            for (Field field : fields) {
+                System.out.println(field.getFieldId());
+            }
             request.setAttribute("cateFields", cateFields);
+            request.setAttribute("fields", fields);
+            request.setAttribute("slots", slots);
+            
             request.getRequestDispatcher("view/home.jsp").forward(request, response);
             
         } catch (Exception e) {
