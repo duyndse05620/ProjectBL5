@@ -1,9 +1,6 @@
-<%-- 
-    Document   : home
-    Created on : 14-Dec-2021, 20:12:40
-    Author     : Windows 10-DPC
---%>
 
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Booking"%>
 <%@page import="java.util.List"%>
@@ -24,32 +21,18 @@
             href="${pageContext.servletContext.contextPath}/view/css/homeStyle.css"
             rel="stylesheet"
             />
-        <link
-            href="${pageContext.servletContext.contextPath}/view/css/style.css"
-            rel="stylesheet"
-            />
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/view/css/style.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
 
         <%
             List<Booking> bookings = (ArrayList<Booking>) request.getAttribute("bookings");
         %>
     </head>
     <body>
-        <header>
-            <h1>Booking 7</h1>
-            <div class="top">
-                <a href="#" class="menu_icon"><i class="material-icons">dehaze</i></a>
-            </div>
-        </header>
-        <nav class="menu">
-            <a href="${pageContext.servletContext.contextPath}/ListField" class="item_menu">Sân</a>
-            <a href="${pageContext.servletContext.contextPath}/ListDetailField" class="item_menu">Chi tiết</a>
-            <a href="#" class="item_menu">LogOut</a>
-        </nav>
+        <c:import url="header.jsp" />
         <section class="session">
             <h2 class="title">Chi Tiết</h2>
             <form action="detail" method="POST">
@@ -85,12 +68,10 @@
             </form>
 
             <div class="div-btn">
-                <input type="submit" class="btn btn-primary" value="Quay Lại Sân" onclick="window.location.href = 'ListDetailField'"/>  
+                <input type="submit" class="btn btn-primary" value="Quay Lại Sân" onclick="window.location.href = 'ListField'"/>  
             </div>
         </section>
         <footer></footer>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-        <script type="text/javascript" src="${pageContext.servletContext.contextPath}/view/js/javascript.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

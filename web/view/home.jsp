@@ -1,8 +1,4 @@
-<%-- 
-    Document   : home
-    Created on : 14-Dec-2021, 20:12:40
-    Author     : Windows 10-DPC
---%>
+
 
 <%@page import="model.Slot"%>
 <%@page import="model.CateField"%>
@@ -15,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Welcome to booking 7</title>
+        <title>JSP Page</title>
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -29,8 +25,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
         <%
             List<Field> fields = (ArrayList<Field>) request.getAttribute("fields");
             List<CateField> cateFields = (ArrayList<CateField>) request.getAttribute("cateFields");
@@ -38,17 +33,7 @@
         %>
     </head>
     <body>
-        <header>
-            <h1>Booking 7</h1>
-            <div class="top">
-                <a href="#" class="menu_icon"><i class="material-icons">dehaze</i></a>
-            </div>
-        </header>
-        <nav class="menu">
-            <a href="${pageContext.servletContext.contextPath}/ListField" class="item_menu">Sân</a>
-            <a href="${pageContext.servletContext.contextPath}/ListDetailField" class="item_menu">Chi tiết</a>
-            <a href="#" class="item_menu">LogOut</a>
-        </nav>
+        <c:import url="header.jsp" />
         <section>
             <div class="container-section-body">
                 <div class="title-body">
@@ -74,27 +59,28 @@
                                     <span class="items-diachi-san-normal"><%=cate.getCateFieldAddress()%></span>
                                 </div>
                                 <div class="items-info-san">
-                                    <span class="items-diachi-san-bold">Số sân:</span>
+                                    <span class="items-diachi-san-bold">Sân trống:</span>
                                     <span class="items-diachi-san-normal"><%=cate.getCateFieldNumberLeft()%></span>
                                 </div>
                                 <div class="btn-booking">
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<%=cate.getCateFieldId()%>">Book</button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal<%=cate.getCateFieldId()%>">Booking</button>
                                 </div>
                             </div>
                         </div>
 
                         <!--dialog booking-->
                         <div class="modal fade" id="myModal<%=cate.getCateFieldId()%>" role="dialog">
-                            <div class="modal-dialog">
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">Form booking</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <form action="AddBookingField" method="POST" id="booking_form">
-                                    <div class="modal-body">
-                                            <input type="hidden" value="<%=cate.getCateFieldId()%>" name="Cateid" />
+                            <form action="AddBookingField" method="POST" id="booking_form">
+                                <input type="hidden" value="<%=cate.getCateFieldId()%>" name="cateId"/>
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Form booking</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+
                                             Số sân : <select name="fieldName">
                                                 <%for (Field f : fields) {
                                                 %>
@@ -103,6 +89,7 @@
                                                 <%}%>
                                                 <%}%>
                                             </select><br>
+
                                             <br>
                                             Chọn giờ : <select name="slot">
                                                 <%for (Slot s : slots) {%>
@@ -113,24 +100,20 @@
                                             Chọn ngày :<input type="date" name="date"/><br>
                                             <br>
 
-                                            </div>
-                                            <div class="modal-footer">
-                                                <input type="submit" class="btn btn-default" value="Confirm">
-
-                                            </div>
-                                        </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input type="submit" class="btn btn-default" value="submit">
+                                        </div>
                                     </div>
-
                                 </div>
-                            </div>
-                            <%}%>                  
+                            </form>
                         </div>
+                        <%}%>                  
                     </div>
                 </div>
+            </div>
         </section>
         <footer></footer>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-        <script type="text/javascript" src="${pageContext.servletContext.contextPath}/view/js/javascript.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

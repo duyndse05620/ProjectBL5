@@ -17,6 +17,8 @@ public class SQLCommand {
 
     public final String GET_DETAIL_BOOKING = "SELECT b.Booking_Date, u.name, cf.CateField_Name, s.[Time], s.Price, f.field_name, cf.CateField_Address, cf.CateField_Phone FROM [Booking] b INNER JOIN Slot s ON s.Slot_Id = b.Slot_Id\n"
             + "INNER JOIN Field f ON f.field_id = b.Field_Id\n"
-            + "INNER JOIN Category_Field cf ON cf.CateField_Id = b.cateField_id\n"
+            + "INNER JOIN Category_Field cf ON cf.CateField_Id = f.cateField_id\n"
             + "INNER JOIN [User] u ON u.Id = b.[User_Id]";
+    
+    public final String GET_USER_BY_PASSWORD_EMAIL = "SELECT [Id],[name],[password],[email],[role] FROM [dbo].[User] WHERE email = ? AND password = ?";
 }

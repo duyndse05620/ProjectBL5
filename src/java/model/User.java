@@ -13,6 +13,24 @@ public class User {
     private String name;
     private String phone;
     private String email;
+    private String password;
+    private boolean role;
+
+    public boolean isRole() {
+        return role;
+    }
+
+    public void setRole(boolean role) {
+        this.role = role;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
     private boolean gender;
     private Date dob;
 
@@ -63,6 +81,7 @@ public class User {
     public void setDob(Date dob) {
         this.dob = dob;
     }
+    
     
     
 }
