@@ -80,7 +80,7 @@ public class AddBookingFieldController extends HttpServlet {
             int slotId = Integer.parseInt(request.getParameter("slot"));
             Date date = Date.valueOf(request.getParameter("date"));
 
-            int cateid = Integer.parseInt(request.getParameter("Cateid"));
+            int cateid = Integer.parseInt(request.getParameter("cateId"));
             Field f = new Field();
             f.setCateFieldId(cateid);
             
@@ -95,7 +95,7 @@ public class AddBookingFieldController extends HttpServlet {
 
             FieldDAO fieldDAO = new FieldDAOImpl();
             if (fieldDAO.insertBookingField(b) > 0) {
-                response.getWriter().print("Booking sucess");
+                response.sendRedirect("ListDetailField");
             } else {
                 response.getWriter().print("failed");
             }

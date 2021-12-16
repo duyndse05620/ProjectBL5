@@ -8,10 +8,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Danh sách sân</title>
         <%
             List<CateField> cateFields = (ArrayList<CateField>) request.getAttribute("cateFields");
         %>
+        <h1> Danh sách sân </h1>
     </head>
     <body>
         <table border="1px">
@@ -30,6 +31,6 @@
             </tr>
             <%}%>
         </table>
-        <a href="${pageContext.servletContext.contextPath}/ListField" >Danh sách sân</a>
+        <a href="${pageContext.servletContext.contextPath}/ListField" >Home</a>
     </body>
 </html>
