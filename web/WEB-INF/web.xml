@@ -12,10 +12,6 @@
         <servlet-name>ListDetailFieldController</servlet-name>
         <servlet-class>controller.ListDetailFieldController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>LoginController</servlet-name>
-        <servlet-class>controller.LoginController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>ListFieldController</servlet-name>
         <url-pattern>/ListField</url-pattern>
@@ -27,10 +23,6 @@
     <servlet-mapping>
         <servlet-name>ListDetailFieldController</servlet-name>
         <url-pattern>/ListDetailField</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
-        <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
